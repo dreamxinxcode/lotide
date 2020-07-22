@@ -21,7 +21,3 @@ const countLetters = function(str) {
   return ans;
 };
 
-const obj = {};
-obj.dog = '';
-console.log(obj);
-console.log(countLetters('HELLO World'));
