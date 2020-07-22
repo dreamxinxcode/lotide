@@ -16,7 +16,7 @@ const assertArraysEqual = function(arr, arr2) {
 const letterPositions = function (sentence) {
   const results = {};
   for (let i = 0; i < sentence.length; i++) {
-    console.log(sentence.charAt(i))
+    console.log(sentence.charAt(i));
     if (sentence.charAt(i) !== ' ') {
       let current = sentence.charAt(i);
       if (!results.hasOwnProperty(current)) {
@@ -29,6 +29,6 @@ const letterPositions = function (sentence) {
   return results;
 };
 
-console.log(letterPositions('lighthouse in the house'));
 
+console.log(letterPositions('lighthouse in the house'));
 assertArraysEqual(letterPositions("hello").e, [1]);
