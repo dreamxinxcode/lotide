@@ -1,26 +1,41 @@
-const eqObjects = function (object1, object2) {
-  if (Object.keys(object1).length === Object.keys(object2).length) {
-    for (let key in object1) {
-      // check if key/value exist in expected
-      if (object2.hasOwnProperty(key)) {
-        if (Array.isArray(object2[key])) {
-          if (assertArraysEqual(object1[key], object2[key])) {
-            return true;
-          } else {
-            return false;
-          }
-        } else if (object2[key] !== object1[key]) {
-          return false;
-        } else {
-          return true;
-        }
-      } else {
+const assertEqual = function(actual, expected) {
+  if (actual === expected) {
+    console.log(`✅✅✅ Assertion Passed: [${actual}] === [${expected}]`);
+  } else {
+    console.log(`🛑🛑🛑 Assertion Failed: [${actual}] !== [${expected}]`);
+  }
+};
+
+const eqArrays = function(arr, arr2) {
+  if (arr.length !== arr2.length) {
+    return false;
+  } else {
+    for (let x = 0; x < arr.length; x++) {
+      if (arr[x] !== arr2[x]) {
         return false;
       }
     }
-  } else {
+  }
+  return true;
+};
+
+
+const eqObjects = function (object1, object2) {
+  if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
   }
+  for (let key in object1) {
+    if (object1[key].length !== object2[key].length) {
+      return false;
+    } else if (Array.isArray(object1[key]) && Array.isArray(object2[key])) {
+      if (!eqArrays(object1[key], object2[key])) {
+        return false;
+      }
+    } else if (object1[key] !== object2[key]) {
+      return false;
+    }
+  }
+  return true;
 };
 
 
