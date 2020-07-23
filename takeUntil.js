@@ -15,6 +15,3 @@ const takeUntil = function(array, callback) {
 };
 
 console.log(takeUntil(data1, x => x < 0));
-
-// Implement takeUntil which will keep collecting items from 
-// a provided array until the callback provided returns a truthy value. 
